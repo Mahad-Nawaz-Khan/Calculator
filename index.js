@@ -1,43 +1,44 @@
-import inquirer from "inquirer";
-import chalk from "chalk";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var inquirer_1 = require("inquirer");
+var chalk_1 = require("chalk");
 console.log("\n");
-let q1 = await inquirer.prompt([{
+var q1 = await inquirer_1.default.prompt([{
         message: "First Value",
         type: "number",
         name: "first",
-        prefix: chalk.green("% "),
+        prefix: chalk_1.default.green("% "),
     },
     {
         message: "Second Value",
         type: "number",
         name: "second",
-        prefix: chalk.green("% "),
+        prefix: chalk_1.default.green("% "),
     },
     {
         message: "What operation do you want to use? \n\n",
         type: "list",
         name: "options",
         choices: ["Addition", "Subtraction", "Multiplication", "Division", "Modulo"],
-        prefix: chalk.green("# "),
+        prefix: chalk_1.default.green("# "),
     }]);
 if (q1.options === "Addition") {
-    let ans = q1.first + q1.second;
-    console.log(chalk.yellowBright("\n\t" + ans.toFixed(2)));
-    prefix: chalk.green("ANS");
+    var ans = q1.first + q1.second;
+    console.log(chalk_1.default.yellowBright("\n" + ans.toFixed(2)));
 }
 else if (q1.options === "Subtraction") {
-    let ans = q1.first - q1.second;
-    console.log(chalk.yellowBright("\n\t" + ans.toFixed(2)));
+    var ans = q1.first - q1.second;
+    console.log(chalk_1.default.yellowBright("\n" + ans.toFixed(2)));
 }
 else if (q1.options === "Multiplication") {
-    let ans = q1.first * q1.second;
-    console.log(chalk.yellowBright("\n\t" + ans.toFixed(2)));
+    var ans = q1.first * q1.second;
+    console.log(chalk_1.default.yellowBright("\n" + ans.toFixed(2)));
 }
 else if (q1.options === "Division") {
-    let ans = q1.first / q1.second;
-    console.log(chalk.yellowBright("\n\t" + ans.toFixed(2)));
+    var ans = q1.first / q1.second;
+    console.log(chalk_1.default.yellowBright("\n" + ans.toFixed(2)));
 }
 else if (q1.options === "Modulo") {
-    let ans = q1.first % q1.second;
-    console.log(chalk.yellowBright("\n\t" + ans.toFixed(2)));
+    var ans = q1.first % q1.second;
+    console.log(chalk_1.default.yellowBright("\n" + ans.toFixed(2)));
 }
