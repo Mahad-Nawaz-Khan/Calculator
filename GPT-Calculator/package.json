@@ -1,6 +1,6 @@
 {
   "name": "cli-gpt-calculator-mn",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A CLI calculator made with the help of ChatGPT 3.5",
   "main": "GPT-calculator.js",
   "type": "module",
