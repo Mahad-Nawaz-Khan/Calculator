@@ -1,15 +1,23 @@
-#! /usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
 console.log("\n");
 function getUserInput(message) {
     return inquirer.prompt({
         message: message,
-        type: "number",
+        type: "input",
         name: "input",
         prefix: chalk.green("% "),
+        validate: (input) => {
+            const value = parseFloat(input);
+            if (!isNaN(input)) {
+                return true;
+            }
+            else {
+                return "Please enter a valid number.";
+            }
+        }
     }).then((answers) => {
-        return answers.input;
+        return parseFloat(answers.input);
     });
 }
 function getOperation() {
@@ -59,9 +67,9 @@ async function calculate() {
             return;
     }
     console.log("\n");
-    console.log("First value:", firstValue);
-    console.log("Second value:", secondValue);
-    console.log("Operation:", chalk.yellow(operation));
-    console.log(chalk.yellowBright("\nResult: " + result.toFixed(2)));
+    console.log(chalk.italic.bold("First value:"), chalk.bold.rgb(126, 191, 160)(firstValue));
+    console.log(chalk.italic.bold("Second value:"), chalk.bold.rgb(126, 191, 160)(secondValue));
+    console.log(chalk.italic.bold("Operation:"), chalk.bold.rgb(111, 51, 145)(operation));
+    console.log(chalk.bold("\nResult: ", chalk.yellowBright(result)));
 }
 calculate();
