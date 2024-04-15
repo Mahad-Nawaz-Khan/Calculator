@@ -3,7 +3,7 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 
-console.log("\n");
+console.log("\t\n");
 
 function getUserInput(message: string): Promise<number> {
     return inquirer.prompt({
